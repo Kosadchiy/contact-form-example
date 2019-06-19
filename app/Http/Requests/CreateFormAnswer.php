@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateFormQuestion extends FormRequest
+class CreateFormAnswer extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,7 @@ class CreateFormQuestion extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'email' => 'required|email',
-            'question' => 'required|min:3|max:1000',
-            'files*' => 'file',
-            'g-recaptcha-response' => 'required|recaptcha'
+            'text' => 'required|min:3|max:1000',
         ];
     }
 }

@@ -7,20 +7,20 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class NewFormQuestion extends Notification
+class NewFormAnswer extends Notification
 {
     use Queueable;
 
-    protected $formQuestion;
+    protected $formAnswer;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($formQuestion)
+    public function __construct($formAnswer)
     {
-        $this->formQuestion = $formQuestion;
+        $this->formAnswer = $formAnswer;
     }
 
     /**
@@ -43,10 +43,11 @@ class NewFormQuestion extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('New question on site.')
-                    ->line('Someone left a question:')
-                    ->line($this->formQuestion->question)
-                    ->action('View', '/admin/questions/'.$this->formQuestion->id);
+                    ->subject('You have been answered.')
+                    ->line('Your Question:')
+                    ->line($this->formAnswer->formQuestion->question)
+                    ->line('Answer:')
+                    ->line($this->formAnswer->text);
     }
 
     /**

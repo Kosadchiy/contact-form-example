@@ -16,17 +16,28 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+const files = require.context('./', true, /\.vue$/i);
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('files-input', require('./components/FilesInput.vue').default);
+//Vue.component('files-input', require('./components/FilesInput.vue').default);
+//Vue.component('questions-list', require('./components/QuestionsList.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+if (document.getElementById('app')) {
+    new Vue({
+        el: '#app',
+    });
+}
 
-const FilesInput = new Vue({
-    el: '#files-input',
-});
+/*
+if (document.getElementById('files-input')) {
+    const FilesInput = new Vue({
+        el: '#files-input',
+    });
+}
+
+if (document.getElementById('questions-list')) {
+    const QuestionsList = new Vue({
+        el: '#questions-list',
+    });
+}
+*/

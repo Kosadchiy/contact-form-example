@@ -15,12 +15,20 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/admin', function () {
-    return view('admin.index');
+Route::get('/admin/questions/{id}', 'FormQuestionController@one');
+
+Route::get('/login', function () {
+    return view('auth.login');
 });
+
+Route::get('/admin', 'FormQuestionController@all');
 
 Route::post('/store', 'FormQuestionController@store');
 
-Auth::routes();
+Route::post('/admin/questions/{id}/delete', 'FormQuestionController@delete');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/admin/questions/{id}/addanswer', 'FormQuestionController@addAnswer');
+
+Route::get('/admin/files/download', 'FormFileController@download');
+
+Auth::routes();

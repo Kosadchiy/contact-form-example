@@ -12,4 +12,14 @@ class FormFilesService implements FormFilesServiceInterface
     {
         return Storage::disk('local')->put('form_files', $file);
     }
+
+    public function download($src, $name)
+    {
+        return Storage::disk('local')->download($src, $name);
+    }
+
+    public function delete($src)
+    {
+        return Storage::disk('local')->delete($src);
+    }
 }

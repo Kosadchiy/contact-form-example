@@ -20,47 +20,12 @@ class FormQuestionObserver
             ->notify(new NewFormQuestion($formQuestion));
     }
 
-    /**
-     * Handle the form question "updated" event.
-     *
-     * @param  \App\FormQuestion  $formQuestion
-     * @return void
-     */
-    public function updated(FormQuestion $formQuestion)
+    public function deleting(FormQuestion $formQuestion)
     {
-        //
-    }
-
-    /**
-     * Handle the form question "deleted" event.
-     *
-     * @param  \App\FormQuestion  $formQuestion
-     * @return void
-     */
-    public function deleted(FormQuestion $formQuestion)
-    {
-        //
-    }
-
-    /**
-     * Handle the form question "restored" event.
-     *
-     * @param  \App\FormQuestion  $formQuestion
-     * @return void
-     */
-    public function restored(FormQuestion $formQuestion)
-    {
-        //
-    }
-
-    /**
-     * Handle the form question "force deleted" event.
-     *
-     * @param  \App\FormQuestion  $formQuestion
-     * @return void
-     */
-    public function forceDeleted(FormQuestion $formQuestion)
-    {
-        //
+        $formQuestion->answer->delete();
+        foreach($formQuestion->files as $file)
+        {
+            $file->delete();
+        }
     }
 }

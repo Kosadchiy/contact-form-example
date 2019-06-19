@@ -12,7 +12,7 @@
                         Menu
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link active" href="#" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-question-circle"></i>Questions <span class="badge badge-success">6</span></a>
+                        <a class="nav-link active" href="/admin" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-question-circle"></i>Questions <span class="badge badge-success">6</span></a>
                     </li>
                 </ul>
             </div>

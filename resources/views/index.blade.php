@@ -15,9 +15,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-
-
-	<div class="container-contact100">
+	<div id="app" class="container-contact100">
 		<div class="wrap-contact100">
 			<form method="POST" action="/store" enctype="multipart/form-data" class="contact100-form validate-form">
 				@csrf

@@ -15,6 +15,21 @@ class FormQuestionsService implements FormQuestionsServiceInterface
         $this->formFilesService = $formFilesService;
     }
 
+    public function all()
+    {
+        return FormQuestion::with(['files', 'answer'])->get();
+    }
+
+    public function getById($id)
+    {
+        return FormQuestion::with(['files', 'answer'])->findOrFail($id);
+    }
+
+    public function delete($id)
+    {
+        FormQuestion::findOrFail($id)->delete();
+    }
+
     public function store(array $data)
     {
         $formQuestion = FormQuestion::create([
@@ -35,5 +50,13 @@ class FormQuestionsService implements FormQuestionsServiceInterface
             }
             $formQuestion->files()->createMany($filesArray);
         }
+    }
+
+    public function addAnswer($id, $data)
+    {
+        $formQuestion = FormQuestion::findOrFail($id);
+        $formQuestion->answer()->create([
+            'text' => $data['text'],
+        ]);
     }
 }

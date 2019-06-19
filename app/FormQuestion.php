@@ -29,4 +29,12 @@ class FormQuestion extends Model
     {
         return $this->hasMany('App\FormFile', 'form_question_id');
     }
+
+    /**
+     * Get the answer for the question.
+     */
+    public function answer()
+    {
+        return $this->hasOne('App\FormAnswer', 'form_question_id');
+    }
 }
