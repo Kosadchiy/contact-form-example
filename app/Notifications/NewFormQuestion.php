@@ -46,7 +46,7 @@ class NewFormQuestion extends Notification
                     ->subject('New question on site.')
                     ->line('Someone left a question:')
                     ->line($this->formQuestion->question)
-                    ->action('View', '/admin/questions/'.$this->formQuestion->id);
+                    ->action('View', config('app.url').'/admin/questions/'.$this->formQuestion->id);
     }
 
     /**

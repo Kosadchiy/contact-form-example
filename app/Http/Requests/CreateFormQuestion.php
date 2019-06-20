@@ -27,7 +27,7 @@ class CreateFormQuestion extends FormRequest
             'name' => 'required|max:255',
             'email' => 'required|email',
             'question' => 'required|min:3|max:1000',
-            'files*' => 'file',
+            'files.*' => 'image|max:20480',
             'g-recaptcha-response' => 'required|recaptcha'
         ];
     }

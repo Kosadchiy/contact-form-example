@@ -60,9 +60,9 @@
 					<files-input id="files-input"></files-input>
 					<span class="focus-input100"></span>
 				</div>
-				@if ($errors->has('files'))
+				@if ($errors->has('files.*'))
 					<span class="alert">
-						<strong>{{ $errors->first('files') }}</strong>
+						<strong>Files must be images.</strong>
 					</span>
 				@endif
 				@if(env('GOOGLE_RECAPTCHA_KEY'))

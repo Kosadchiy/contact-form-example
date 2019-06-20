@@ -25,7 +25,7 @@
         @click="uploadClick"
       >Choose files</button>
       <button v-if="filesCount" type="button" class="btn btn-primary" @click="removeFiles">Clear</button>
-      <input type="hidden" name="MAX_FILE_SIZE" value="9000000">
+      <input type="hidden" name="MAX_FILE_SIZE" value="20971520">
       <input
         name="files[]"
         v-show="false"

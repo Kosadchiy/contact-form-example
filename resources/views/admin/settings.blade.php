@@ -30,7 +30,7 @@
                                             </span>
                                         @endif
                                     </div>
-                                    <input class="btn" type="submit" value="Send">
+                                    <input class="btn" type="submit" value="Save">
                                 </form>
                             </div>
                         </div>
