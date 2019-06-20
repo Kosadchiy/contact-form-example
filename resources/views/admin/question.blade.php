@@ -15,11 +15,9 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="section-block" id="basicform">
-                            <h3 class="section-title">Basic Form Elements</h3>
-                            <p>Use custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</p>
+                            <h3 class="section-title">Question</h3>
                         </div>
                         <div class="card">
-                            <h5 class="card-header">Basic Form</h5>
                             <div class="card-body">
                                     <div class="form-group">
                                         <span class="col-form-label">Name</span>
@@ -55,7 +53,14 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="text">Answer</label>
-                                        <textarea name="text" placeholder="Enter your answer..." class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        <textarea name="text" placeholder="Enter your answer..." class="form-control" rows="3">
+                                            {{ old('text') }}
+                                        </textarea>
+                                        @if ($errors->has('text'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('text') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                     <input class="btn" type="submit" value="Send">
                                 </form>

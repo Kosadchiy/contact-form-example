@@ -177,6 +177,7 @@ return [
 
         App\Providers\FormQuestionsServiceProvider::class,
         App\Providers\FormFilesServiceProvider::class,
+        App\Providers\SettingsServiceProvider::class,
 
     ],
 

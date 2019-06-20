@@ -41,7 +41,7 @@
                 <form method="POST" action="{{route('login') }}">
                     @csrf
                     <div class="form-group">
-                        <input class="form-control form-control-lg {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="email" type="text" placeholder="Email" autocomplete="off" value="{{ old('email') }}" required>
+                        <input class="form-control form-control-lg {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="email" type="text" placeholder="Email" value="{{ old('email') }}" required>
                         @if ($errors->has('email'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('email') }}</strong>
@@ -64,11 +64,6 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
                 </form>
-            </div>
-            <div class="card-footer bg-white p-0  ">
-                <div class="card-footer-item card-footer-item-bordered">
-                    <a href="#" class="footer-link">Forgot Password</a>
-                </div>
             </div>
         </div>
     </div>

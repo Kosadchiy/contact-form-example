@@ -15,20 +15,32 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/admin/questions/{id}', 'FormQuestionController@one');
-
 Route::get('/login', function () {
     return view('auth.login');
 });
 
-Route::get('/admin', 'FormQuestionController@all');
-
 Route::post('/store', 'FormQuestionController@store');
 
-Route::post('/admin/questions/{id}/delete', 'FormQuestionController@delete');
+Route::prefix('admin')->group(function () {
 
-Route::post('/admin/questions/{id}/addanswer', 'FormQuestionController@addAnswer');
+    Route::group(['middleware' => 'auth'], function () {
 
-Route::get('/admin/files/download', 'FormFileController@download');
+        Route::get('', 'FormQuestionController@all');
+
+        Route::get('/questions/{id}', 'FormQuestionController@one');
+
+        Route::get('/settings', 'SettingsController@get');
+
+        Route::post('/settings', 'SettingsController@set');
+
+        Route::post('/questions/{id}/delete', 'FormQuestionController@delete');
+
+        Route::post('/questions/{id}/addanswer', 'FormQuestionController@addAnswer');
+        
+        Route::get('/files/download', 'FormFileController@download');
+
+    });
+
+});
 
 Auth::routes();

@@ -1,3 +1,11 @@
+<style>
+.deleteButton {
+  cursor: pointer;
+}
+.deleteButton:hover {
+  color: #ff407b;
+}
+</style>
 <template>
   <table class="table table-striped">
     <thead>
@@ -7,7 +15,7 @@
         <th scope="col">Email</th>
         <th scope="col">Question</th>
         <th scope="col">Files</th>
-        <th scope="col">Answer sent</th>
+        <th scope="col">Answer</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -18,7 +26,7 @@
         <td>{{item.email}}</td>
         <td>{{item.question}}</td>
         <td>
-          <i v-if="item.files" class="fa fa-paperclip"></i>
+          <i v-if="item.files.length" class="fa fa-paperclip"></i>
         </td>
         <td>
           <i v-if="item.answer" class="fa fa-check"></i>
@@ -26,7 +34,7 @@
         <td>
           <a :href="`/admin/questions/${item.id}`">View</a>
           <span>|</span>
-          <a v-on:click="deleteItem(item.id, index)">Delete</a>
+          <span class="deleteButton" v-on:click="deleteItem(item.id, index)">Delete</span>
         </td>
       </tr>
     </tbody>

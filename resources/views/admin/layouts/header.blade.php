@@ -14,7 +14,7 @@
                         <span class="mb-0 nav-user-name">{{ Auth::user()->email }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                        <a class="dropdown-item" href="#"><i class="fa fa-cogs"></i> Setting</a>
+                        <a class="dropdown-item" href="/admin/settings"><i class="fa fa-cogs"></i> Setting</a>
                         <a 
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item" 
                             href="{{ route('logout') }}">
