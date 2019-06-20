@@ -10,7 +10,7 @@ class SettingsService implements SettingsServiceInterface
 {
     public function get(string $key) :string
     {
-        return Settings::where('key', $key)->firstOrFail()->value;
+        return Settings::where('key', $key)->first()->value;
     }
 
     public function set(string $key, string $value) :void
