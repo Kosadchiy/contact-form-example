@@ -32,7 +32,11 @@ class FormQuestionObserver
 
     public function deleting(FormQuestion $formQuestion)
     {
-        $formQuestion->answer->delete();
+        if ($formQuestion->answer)
+        {
+            $formQuestion->answer->delete();
+        }
+        
         foreach($formQuestion->files as $file)
         {
             $file->delete();
